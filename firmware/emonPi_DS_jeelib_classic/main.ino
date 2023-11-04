@@ -74,7 +74,8 @@ LiquidCrystal_I2C lcd(0,0,0);
 
 //----------------------------emonPi Firmware Version---------------------------------------------------------------------------------------------------------------
 // Changelog: https://github.com/openenergymonitor/emonpi/blob/master/firmware/readme.md
-const int firmware_version = 293;                                     //firmware version x 100 e.g 100 = V1.00
+//const int firmware_version = 293;                                     //firmware version x 100 e.g 100 = V1.00
+const char firmware_version[] PROGMEM = "2.9.3.1";
 
 //----------------------------emonPi Settings---------------------------------------------------------------------------------------------------------------
 bool debug =                   true;
@@ -102,7 +103,7 @@ const int timeout=                2000;                               // emonLib
 const int ACAC_DETECTION_LEVEL=   3000;
 
 const byte TEMPERATURE_PRECISION=  12;                                 // 9 (93.8ms),10 (187.5ms) ,11 (375ms) or 12 (750ms) bits equal to resplution of 0.5C, 0.25C, 0.125C and 0.0625C
-const byte MaxOnewire=             6;                                  // maximum number of DS18B20 one wire sensors
+const byte MaxOnewire=             13;                                 // maximum number of DS18B20 one wire sensors (2 terminal Block Breakout for DS18B20)
 bool RF_STATUS=                 true;                                  // Turn RF on and off
 //-------------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------------

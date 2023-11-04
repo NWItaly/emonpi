@@ -119,7 +119,7 @@ static void handleInput (char c) {
         break;
 
       case 'v': // print firmware version
-        Serial.print(F("[emonPi.")); Serial.print(firmware_version*0.1); Serial.print(F("]"));
+        Serial.print(F("[emonPi.")); Serial.print(firmware_version); Serial.print(F("]"));
         break;
 
       case 'a': // send packet to node ID N, request an ack

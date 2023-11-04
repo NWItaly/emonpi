@@ -21,7 +21,7 @@ void emonPi_LCD_Startup(int current_i2c_addr) {
   LiquidCrystal_I2C lcd(current_lcd_i2c_addr,16,2);                                   // LCD I2C address to 0x27, 16x2 line display
   lcd.init();                      // initialize the lcd
   lcd.backlight();                 // Or lcd.noBacklight()
-  lcd.print(F("emonPi V")); lcd.print(firmware_version*0.01);
+  lcd.print(F("emonPi V")); lcd.print(firmware_version);
   lcd.setCursor(0, 1); lcd.print(F("OpenEnergyMon"));
 }
 
