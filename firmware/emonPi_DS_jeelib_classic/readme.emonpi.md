@@ -24,3 +24,21 @@
 1. Modificare il file `nano emonpi.sh` sostituendo con quanto presente in questa cartella.
 1. Eseguire lo script: `sh emonpi.sh`.  
 **N.B.: E' possibile che sia necessario eseguire più volte lo script affinché funzioni.**
+
+## Step 3 - EmonCMS
+Modificare il config di Emonnub affinché i valori passati dalla scheda EmonPi siano parserizzati correttamente.
+
+## Esempio
+Se si fossero collegati più di 6 sensori di temperatura DS18B20 sarebbe necessario modificare la variabile `MaxOnewire` nel file main.ino. Collegando in serie 2 terminal Block Breakout il numero massimo di sensori disponibili sarebbe 13.  
+Affinché siano ricevuti e parserizzati tutti i nuovi sensori di temperatura nel file config di Emonhub il [node] sarebbe da modificare in tutte le righe: **name, datacodes, scales ed units**.
+
+``` yml
+[nodes]
+    [[5]]
+        nodename = emonpi_5
+        [[[rx]]]
+            names = power1, power2, power1pluspower2, vrms, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, pulsecount
+            datacodes = h, h, h, h, h, h, h, h, h, h, h, h, h, h, h, h, h, L
+            scales = 1.0, 1.0, 1.0, 0.01, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 1.0
+            units = W, W, W, V, C, C, C, C, C, C, C, C, C, C, C, C, p
+```
